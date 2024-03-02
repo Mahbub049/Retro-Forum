@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retro Forum</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/6e7e069626.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .mulish {
+        font-family: "Mulish", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="mulish">
+    <header class="container mx-auto mt-14 mb-[100px]">
+      <div class="mb-14">
+        <div class="navbar bg-base-100">
+          <div class="navbar-start">
+            <a class="text-4xl font-black">ReTro</a>
+          </div>
+          <div class="navbar-end">
+            <div class="flex gap-3 mr-6">
+              <i
+                class="fa-solid fa-house text-2xl bg-[#12132D08] py-4 px-5 rounded-full border-[#12132D99] border"
+              ></i>
+              <i
+                class="fa-solid fa-pen text-2xl bg-[#12132D08] py-4 px-5 rounded-full border-[#12132D99] border"
+              ></i>
+              <i
+                class="fa-solid fa-user-plus text-2xl bg-[#12132D08] py-4 px-4 rounded-full border-[#12132D99] border"
+              ></i>
+              <i
+                class="fa-regular fa-flag text-2xl bg-[#12132D08] py-4 px-5 rounded-full border-[#12132D99] border"
+              ></i>
+            </div>
+            <button
+              class="text-xl font-bold px-10 py-5 text-white bg-[#797DFC] rounded-[50px]"
+            >
+              Sign In
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="bg-[#12132D] h-[550px] rounded-[32px]">
+        <div class="bg-[url(./images/bgbanner.png)] bg-cover h-[550px] flex items-center justify-around">
+          <div>
+            <h1 class="text-6xl font-black text-white w-[623px] leading-[86px] mb-5">
+              Welcome to the
+              <span
+                class="bg-gradient-to-r from-[#797DFC] to-[#8758F1] text-transparent bg-clip-text">ReTro </span>Forum
+            </h1>
+            <p class="text-xl font-bold text-white leading-7 w-[455px] leading mb-8">
+              Share your favorite opinion and win and wp <br />
+              forum coffee mug!
+            </p>
+            <div>
+
+            </div>
+            <div>
+              <div class="join relative">
+                <input
+                  class="input input-bordered rounded-full w-[400px] h-[56px] py-[20px]"
+                  placeholder="Search here anything"
+                />
+                <button class="btn rounded-full absolute right-[5px] top-[5px] bg-[#797DFC] text-xl font-bold text-white">Search</button>
+              </div>
+            </div>
+          </div>
+          <div class="text-black bg-white p-12 text-2xl font-semibold flex flex-col gap-6 rounded-[32px]">
+            <div class="flex gap-14 justify-between">
+              <h3>Registered Users</h3>
+              <h3>01</h3>
+            </div>
+            <div class="flex gap-14 justify-between">
+              <h3>Forum</h3>
+              <h3>05</h3>
+            </div>
+            <div class="flex gap-14 justify-between">
+              <h3>Topics</h3>
+              <h3>01</h3>
+            </div>
+            <div class="flex gap-14 justify-between">
+              <h3>Replies</h3>
+              <h3>01</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="container mx-auto">
+      <section>
+        <div class="text-center mb-12">
+          <h1 class="text-[40px] font-black mb-6">Let’s Discuss</h1>
+          <p class="mx-auto w-[691px] text-lg text-[#12132D99]">Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for a streamlined .</p>
+        </div>
+        <div>
+          <!-- Left Container -->
+          <div>
+            <!-- each card -->
+            <div class="flex gap-6 bg-[#797DFC1A]">
+              <!-- profile pic -->
+              <div class="border-2 relative w-[72px]">
+                <img src="./images/reporter.png" alt="">
+                <div class="w-[18px] h-[18px] bg-green-500 rounded-full absolute top-0 right-0"></div>
+              </div>
+              <!-- right information -->
+              <div>
+                <!-- cat and author -->
+                <div class="flex gap-5 mb-3">
+                  <p># Music</p>
+                  <p>Author : Awlad Hossain/p>
+                </div>
+                <!-- title -->
+                <div class="">
+                  <h3 class="text-xl font-bold mb-3">10 Kids Unaware of Their Halloween Costume</h3>
+                  <p class="">It’s one thing to subject yourself to ha Halloween costume mishap because, hey that’s your prerogative</p>
+                  <hr class="border border-[#12132D40] border-dashed my-5">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+    <script src="./app.js"></script>
+  </body>
+</html>
