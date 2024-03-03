@@ -1,6 +1,7 @@
 const discussContainer = document.getElementById('discussContainer');
 const showReadPosts = document.getElementById('showReadPosts');
 const countRead = document.getElementById('countRead');
+const latestPostCards = document.getElementById('latestPostCards');
 
 let markAsRead = 0;
 
@@ -13,7 +14,6 @@ const allPosts = async() =>{
 
 const showByCategory = (posts) =>{
     posts.forEach(post => {
-        console.log(post)
         const card = document.createElement('div');
         card.innerHTML = `
         <!-- each card -->
@@ -76,7 +76,47 @@ function postRead(title, views){
     </div>
     `
     showReadPosts.appendChild(doneRead)
-    console.log(doneRead)
 }
 
+const latestPostFetch = async() => {
+  const response = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
+  const data = await response.json();
+  showLatestPosts(data);
+}
+
+const showLatestPosts = (posts) => {
+  posts.forEach(post=> {
+    const postCard = document.createElement('div');
+    postCard.classList = `card border-2`;
+    postCard.innerHTML = `
+    <figure class="px-10 pt-10">
+      <img src="${post.cover_image}" alt="Shoes" class="rounded-xl" />
+    </figure>
+    <div class="card-body">
+      <div class="flex gap-2 items-center mb-3">
+        <i class="fa-regular fa-calendar text-xl"></i>
+        <span>${post.author.posted_date === undefined ? 'No publish date' : post.author.posted_date}</span>
+      </div>
+      <div class="space-y-3">
+        <h4 class=" text-lg font-extrabold leading-7">${post.title}</h4>
+        <p class="leading-7">${post.description} </p>
+      </div>
+      <!-- author -->
+      <div class="mt-4 flex gap-4 items-center">
+        <!-- author image -->
+        <div>
+          <img class="w-[44px] rounded-full" src="${post.profile_image}" alt="">
+        </div>
+        <div>
+          <h4 class="font-bold">${post.author.name}</h4>
+          <p>${post.author.designation === undefined ? "Unknown": post.author.designation}</p>
+        </div>
+      </div>
+    </div>
+    `
+    latestPostCards.appendChild(postCard);
+  })
+}
+
+latestPostFetch()
 allPosts();
