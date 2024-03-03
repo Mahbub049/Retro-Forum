@@ -60,6 +60,7 @@ const showByCategory = (posts) =>{
           </div>
         </div>
         `
+        spinner(false)
         discussContainer.appendChild(card);       
     });
 }
@@ -120,6 +121,7 @@ const showLatestPosts = (posts) => {
 }
 
 const searchPosts = () =>{
+  spinner(true)
   const searchBtn = document.getElementById('search');
   const searchValue = searchBtn.value;
   searchByCategory(searchValue);
@@ -131,6 +133,23 @@ const searchByCategory = async(categoryName) => {
   const mainData = data.posts;
   showByCategory(mainData)
   
+}
+
+const spinner = (isTrue) => {
+  const toggleSpinner = document.getElementById('spinner');
+  if(isTrue){
+    toggleSpinner.classList.remove('hidden');
+    discussContainer.classList.add('hidden');
+  }
+  else{
+    setTimeout(()=>{
+    toggleSpinner.classList.add('hidden');
+  },2000)
+
+    setTimeout(()=>{
+      discussContainer.classList.remove('hidden');
+    }, 2000)
+  }
 }
 
 latestPostFetch()
