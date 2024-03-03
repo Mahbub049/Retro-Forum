@@ -18,7 +18,7 @@ const showByCategory = (posts) =>{
         const card = document.createElement('div');
         card.innerHTML = `
         <!-- each card -->
-        <div class="flex flex-col lg:flex-row items-center lg:items-start gap-6 bg-[#797DFC1A] p-10 rounded-3xl">
+        <div class="flex flex-col lg:flex-row items-center lg:items-start gap-6 bg-[#F3F3F5] p-10 rounded-3xl active:bg-[#797DFC1A] border border-white active:border active:border-[#797DFC]">
           <!-- profile pic -->
           <div class="relative w-[72px]">
             <img class="w-[72px] rounded-2xl" src="${post.image}" alt="">
@@ -53,7 +53,7 @@ const showByCategory = (posts) =>{
                   <span>${post.posted_time} min</span>
                 </div>
               </div>
-              <button onclick="postRead('${post.title.replace("'", "\\'")}',${post.view_count})" class="bg-green-500 w-[28px] h-[28px] rounded-full text-center cursor-pointer">
+              <button onclick="postRead('${post.title.replace("'", "\\'")}',${post.view_count})" class="bg-green-500 hover:bg-green-700 w-[28px] h-[28px] rounded-full text-center cursor-pointer">
                 <i class="fa-regular fa-envelope-open text-white"></i>
               </button>
             </div>
