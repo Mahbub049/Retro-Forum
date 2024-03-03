@@ -13,7 +13,8 @@ const allPosts = async() =>{
 }
 
 const showByCategory = (posts) =>{
-    posts.forEach(post => {
+  discussContainer.innerHTML = ``;
+        posts.forEach(post => {
         const card = document.createElement('div');
         card.innerHTML = `
         <!-- each card -->
@@ -116,6 +117,20 @@ const showLatestPosts = (posts) => {
     `
     latestPostCards.appendChild(postCard);
   })
+}
+
+const searchPosts = () =>{
+  const searchBtn = document.getElementById('search');
+  const searchValue = searchBtn.value;
+  searchByCategory(searchValue);
+}
+
+const searchByCategory = async(categoryName) => {
+  const response = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${categoryName}`)
+  const data = await response.json();
+  const mainData = data.posts;
+  showByCategory(mainData)
+  
 }
 
 latestPostFetch()
