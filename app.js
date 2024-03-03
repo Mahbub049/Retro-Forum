@@ -1,4 +1,8 @@
 const discussContainer = document.getElementById('discussContainer');
+const showReadPosts = document.getElementById('showReadPosts');
+const countRead = document.getElementById('countRead');
+
+let markAsRead = 0;
 
 const allPosts = async() =>{
     const response = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
@@ -48,7 +52,7 @@ const showByCategory = (posts) =>{
                   <span>${post.posted_time} min</span>
                 </div>
               </div>
-              <button onclick="" class="bg-green-500 w-[28px] h-[28px] rounded-full text-center cursor-pointer">
+              <button onclick="postRead('${post.title.replace("'", "\\'")}',${post.view_count})" class="bg-green-500 w-[28px] h-[28px] rounded-full text-center cursor-pointer">
                 <i class="fa-regular fa-envelope-open text-white"></i>
               </button>
             </div>
@@ -57,6 +61,22 @@ const showByCategory = (posts) =>{
         `
         discussContainer.appendChild(card);       
     });
+}
+
+function postRead(title, views){
+    markAsRead++;
+    countRead.innerHTML= markAsRead;
+    const doneRead = document.createElement('div');
+    doneRead.classList = `p-4 flex gap-2 bg-[#12132d0b] justify-between rounded-2xl`
+    doneRead.innerHTML = `
+    <h3 class="font-semibold w-[212px]">${title}</h3>
+    <div class="flex items-center gap-2">
+      <i class="fa-regular fa-eye"></i>
+      <span>${views}</span>
+    </div>
+    `
+    showReadPosts.appendChild(doneRead)
+    console.log(doneRead)
 }
 
 allPosts();
